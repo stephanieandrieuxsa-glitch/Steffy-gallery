@@ -25,7 +25,7 @@
         intro: 'Graphite Artist & Portrait Drawing',
         title: "Hello, I'm Sarah",
         focus: ['Capturing', 'Emotion', 'Through', 'Pencil', 'Art'],
-        hero: 'Welcome to my portfolio. Through graphite drawing, I aim to capture expressions, emotions, and details that make every subject unique. Each artwork is carefully created using traditional techniques and a passion for realism.',
+        hero: 'Welcome to my portfolio. Through graphite and charcoal drawing, I aim to capture expressions, emotions, and details that make every subject unique. Each artwork is carefully created using traditional techniques, patience, and dedication.',
         cta: 'Explore Gallery',
         featured: 'Featured Works',
         card1Title: 'Portrait Study',
