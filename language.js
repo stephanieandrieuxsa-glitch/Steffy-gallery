@@ -116,7 +116,7 @@
         intro: 'Artiste au graphite & portraits',
         title: 'Bonjour, je suis Sarah',
         focus: ['Capturer', "l'émotion", 'par le', 'dessin', 'au crayon'],
-        hero: 'Bienvenue dans mon portfolio. À travers le dessin au graphite, je cherche à capturer les expressions, les émotions et les détails qui rendent chaque sujet unique. Chaque œuvre est créée avec soin, en utilisant des techniques traditionnelles et une passion pour le réalisme.',
+        hero: 'Bienvenue dans mon portfolio. À travers le dessin au graphite, je cherche à capturer les expressions, les émotions et les détails qui rendent chaque sujet unique. Chaque œuvre est créée avec soin, en utilisant des techniques traditionnelles, avec patience et passion.',
         cta: 'Explorer la galerie',
         featured: 'Œuvres en vedette',
         card1Title: 'Étude de portrait',
