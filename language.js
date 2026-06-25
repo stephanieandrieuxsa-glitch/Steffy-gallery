@@ -126,7 +126,7 @@
         card3Title: 'Étude de réalisme',
         card3Desc: 'Une exploration de la texture, du contraste et de la lumière par un travail minutieux au crayon.',
         aboutTitle: 'Mon travail',
-        aboutText: 'Toutes les œuvres présentées ici sont dessinées à la main au crayon graphite et au crayon fusain sur papier. Une attention particulière est portée à la texture, au contraste et à l\'expression afin de créer des dessins à la fois réalistes et émotionnellement engageants.',
+        aboutText: 'Toutes les œuvres présentées ici sont dessinées à la main au crayon graphite et au crayon fusain sur papier. Une attention particulière est portée à la texture, au contraste et à l\'expression afin de créer des dessins riches en caractère, en émotion et en détails.',
         quote: '« Chaque trait de crayon raconte une histoire. »'
       },
       about: {
