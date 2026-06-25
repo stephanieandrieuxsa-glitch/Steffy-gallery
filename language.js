@@ -33,7 +33,7 @@
         card2Title: 'Child Portrait',
         card2Desc: 'A drawing that captures innocence, warmth, and natural emotion.',
         card3Title: 'Realism Study',
-        card3Desc: 'An exploration of texture, contrast, and light through detailed pencil work.',
+        card3Desc: 'An exploration of texture, contrast, and light through meticulous graphite and charcoal drawings.',
         aboutTitle: 'About My Work',
         aboutText: 'All artworks presented here are hand-drawn using graphite and charcoal pencils on paper. Special attention is given to texture, contrast, and expression to create drawings rich in character, emotion, and detail.',
         quote: '"Every pencil stroke tells a story."'
