@@ -100,7 +100,7 @@
         index: { title: "Portfolio d'art — Sarah", description: "Découvrez le portfolio de Sarah : dessins au graphite, portraits réalistes, portraits d'enfants et commandes sur mesure." },
         art: { title: "Galerie — Portfolio d'art de Sarah", description: "Explorez la galerie de Sarah : études de portraits, art animalier et dessins uniques au graphite." },
         about: { title: "À propos — Portfolio d'art de Sarah", description: "Découvrez le parcours artistique de Sarah, ses techniques mêlant graphite et fusain, et son atelier de dessin traditionnel." },
-        contact: { title: "Contact — Portfolio d'art de Sarah", description: "Contactez Sarah pour des portraits, illustrations au graphite sur mesure et commandes de dessins au crayon." }
+        contact: { title: "Contact — Portfolio d'art de Sarah", description: "Contactez Sarah pour des portraits, illustrations au graphite sur mesure et commandes de dessins au crayon et au fusain." }
       },
       nav: { home: 'Accueil', gallery: 'Galerie', about: 'À propos', contact: 'Contact' },
       lang: { label: 'Choisir la langue' },
