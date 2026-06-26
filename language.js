@@ -22,7 +22,7 @@
         tagline: 'Handcrafted with Passion'
       },
       index: {
-        intro: 'Graphite Artist & Portrait Drawing',
+        intro: 'Traditional Graphite & Charcoal Art',
         title: "Hello, I'm Sarah",
         focus: ['Capturing', 'Emotion', 'Through', 'Pencil', 'Art'],
         hero: 'Welcome to my portfolio. Through graphite and charcoal drawing, I aim to capture expressions, emotions, and details that make every subject unique. Each artwork is carefully created using traditional techniques, patience, and dedication.',
