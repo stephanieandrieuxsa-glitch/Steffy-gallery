@@ -61,7 +61,7 @@
       },
       contact: {
         title: "Let's talk",
-        desc: "Whether you're interested in a piece, have a commission in mind, or just want to say hello — I'd love to hear from you.",
+        desc: "Whether you're interested in a piece, have a commission in mind, or just want to say hello. I'd love to hear from you.",
         replyTime: 'I usually reply within a couple of days.',
         section: 'Contact',
         emailLabel: 'Email',
