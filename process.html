@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PAGE TITLE HERE</title>
+  <meta name="description" content="PAGE DESCRIPTION HERE">
+
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="language.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #faf6ef;
+      color: #2b2b2b;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ================= NAVIGATION ================= */
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 40px;
+      background: #2b2420;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-img {
+      height: clamp(50px, 15vw, 90px);
+      max-width: 100%;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #faf6ef;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: .75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: #c1693c;
+      transition: .3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* ================= MAIN ================= */
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 20px 10px;
+    }
+
+    .process-section h1 {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 2.4rem;
+      color: #2b2420;
+      display: inline-block;
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    .process-section h1::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 60px;
+      height: 4px;
+      background: #c1693c;
+    }
+
+    .process-desc {
+      max-width: 700px;
+      color: #6f675f;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      text-align: justify;
+      margin-bottom: 0;
+    }
+
+    /* ================= GALERIE HORIZONTALE ================= */
+
+    .gallery-wrapper {
+      position: relative;
+      height: 400vh;
+      /* ↑ Augmentez (ex: 500vh) si le scroll est trop rapide */
+      margin: 0 -20px; /* déborde légèrement du main pour pleine largeur */
+    }
+
+    .gallery-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #faf6ef;
+    }
+
+    .gallery-label {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #c1693c;
+      padding: 2rem 2rem 1rem;
+    }
+
+    .gallery-track-outer {
+      overflow: hidden;
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .gallery-track {
+      display: flex;
+      gap: 1.5rem;
+      padding: 0 2rem;
+      will-change: transform;
+    }
+
+    /* Cartes */
+    .card {
+      flex-shrink: 0;
+      width: clamp(220px, 28vw, 360px);
+      height: clamp(300px, 55vh, 500px);
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: box-shadow 0.4s ease;
+      background: #e8e0d5;
+    }
+
+    .card:hover {
+      box-shadow: 0 0 0 2px #c1693c;
+    }
+
+    .card img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .card:hover img { transform: scale(1.04); }
+
+    .card-meta {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 2rem 1.5rem 1.5rem;
+      background: linear-gradient(to top, rgba(43,36,32,0.88), transparent);
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .card:hover .card-meta { opacity: 1; transform: translateY(0); }
+
+    .card-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 0.95rem;
+      color: #faf6ef;
+    }
+
+    .card-subtitle {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #c1693c;
+      margin-top: 0.3rem;
+    }
+
+    .card-hint {
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(193,105,60,0.65);
+      margin-top: 0.6rem;
+    }
+
+    /* Barre de progression */
+    .gallery-progress-bar {
+      height: 2px;
+      background: #e0d8cf;
+      margin: 1rem 2rem 1.5rem;
+      position: relative;
+      border-radius: 2px;
+    }
+
+    .gallery-progress-fill {
+      position: absolute; top: 0; left: 0;
+      height: 100%; background: #c1693c;
+      width: 0%; transition: width 0.05s linear;
+      border-radius: 2px;
+    }
+
+    /* ================= OVERLAY ÉVOLUTION ================= */
+
+    .evo-overlay {
+      position: fixed; inset: 0; z-index: 2000;
+      display: flex; align-items: center; justify-content: center;
+      pointer-events: none; opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .evo-overlay.active {
+      pointer-events: all;
+      opacity: 1;
+    }
+
+    .evo-backdrop {
+      position: absolute; inset: 0;
+      background: rgba(43,36,32,0.92);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .evo-panel {
+      position: relative; z-index: 1;
+      width: min(92vw, 1100px);
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 3rem 2.5rem 2.5rem;
+    }
+
+    .evo-close {
+      position: absolute; top: 0; right: 0;
+      background: none; border: none;
+      color: #6f675f; font-size: 1.4rem;
+      cursor: pointer; padding: 0.5rem; line-height: 1;
+      transition: color 0.2s;
+    }
+
+    .evo-close:hover { color: #faf6ef; }
+
+    .evo-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #c1693c;
+      margin-bottom: 0.5rem;
+    }
+
+    .evo-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: #faf6ef;
+      margin-bottom: 2.5rem;
+    }
+
+    .evo-steps {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-end;
+    }
+
+    .evo-step {
+      flex: 1;
+      display: flex; flex-direction: column; gap: 0.75rem;
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .evo-step:nth-child(1) { transition-delay: 0.05s; }
+    .evo-step:nth-child(2) { transition-delay: 0.18s; }
+    .evo-step:nth-child(3) { transition-delay: 0.31s; }
+    .evo-step:nth-child(4) { transition-delay: 0.44s; }
+
+    .evo-overlay.active .evo-step { opacity: 1; transform: translateY(0); }
+
+    .evo-step-img {
+      border-radius: 4px;
+      overflow: hidden;
+      background: #2b2420;
+    }
+
+    /* hauteurs croissantes = effet "montée" visuelle */
+    .evo-step:nth-child(1) .evo-step-img { height: clamp(120px, 18vh, 180px); }
+    .evo-step:nth-child(2) .evo-step-img { height: clamp(150px, 24vh, 230px); }
+    .evo-step:nth-child(3) .evo-step-img { height: clamp(180px, 30vh, 290px); }
+    .evo-step:nth-child(4) .evo-step-img { height: clamp(210px, 36vh, 340px); }
+
+    .evo-step-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .evo-arrow {
+      flex-shrink: 0; width: 1.5rem;
+      display: flex; align-items: center; justify-content: center;
+      padding-bottom: 2rem; color: #4a3e38;
+      opacity: 0; transition: opacity 0.4s ease 0.5s;
+    }
+
+    .evo-overlay.active .evo-arrow { opacity: 1; }
+
+    .evo-step-label {
+      font-size: 0.6rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: #6f675f;
+    }
+
+    .evo-step-name { font-size: 0.85rem; color: #faf6ef; }
+
+    .evo-step:last-child .evo-step-label,
+    .evo-step:last-child .evo-step-name { color: #c1693c; }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: #2b2420;
+      color: rgba(250,246,239,.7);
+      padding: 60px 40px 30px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+      color: #c1693c;
+      font-family: 'Archivo Black', sans-serif;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      letter-spacing: 1px;
+    }
+
+    .footer-col p,
+    .footer-col a {
+      color: #6f675f;
+      text-decoration: none;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a:hover { color: #c1693c; }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: auto;
+      border-top: 1px solid rgba(250,246,239,.1);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 768px) {
+      nav { flex-direction: column; gap: 15px; padding: 20px; }
+      .nav-right { flex-direction: column; }
+      .nav-links { flex-wrap: wrap; justify-content: center; gap: 20px; }
+      .nav-links a { margin-left: 0; }
+      .footer-container { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .evo-steps { flex-direction: column; align-items: stretch; }
+      .evo-step-img { height: 180px !important; }
+      .evo-arrow { display: none; }
+    }
+  </style>
+
+</head>
+
+<body>
+
+<nav>
+  <img src="Images/Logo.png" alt="Sarah's Art" class="logo-img">
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="art.html" data-i18n="nav.gallery">Gallery</a>
+      <a href="process.html" data-i18n="nav.process">Process</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    </div>
+    <div class="lang-switcher" role="group" data-i18n-attr="aria-label:lang.label">
+      <button class="lang-btn" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <section class="process-section">
+    <h1 data-i18n="nav.process">Process</h1>
+    <p class="process-desc" data-i18n="process.desc"></p>
+  </section>
+
+</main>
+
+<!-- =========================================
+  GALERIE HORIZONTALE
+  · Remplacez src="images/dessinX.jpg" par vos images principales
+  · Dans data-steps, mettez les 4 images d'évolution de chaque dessin
+  · Dupliquez un bloc .card pour ajouter d'autres œuvres
+========================================= -->
+<section class="gallery-wrapper" id="gallery-wrapper">
+  <div class="gallery-sticky">
+
+    
+
+    <div class="gallery-track-outer">
+      <div class="gallery-track" id="gallery-track">
+
+        <!-- DESSIN 1 -->
+        <div class="card"
+          data-title="Série Bleue — I"
+          data-steps='[
+            {"label":"Esquisse",        "name":"Premiers traits",     "src":"images/d1-esquisse.jpg"},
+            {"label":"Crayonné",        "name":"Structure & volumes", "src":"images/d1-crayonne.jpg"},
+            {"label":"Mise en couleur", "name":"Aplats d\u0027encre", "src":"images/d1-couleur.jpg"},
+            {"label":"Final",           "name":"Détails & lumières",  "src":"images/d1-final.jpg"}
+          ]'>
+          <img src="images/dessin1.jpg" alt="Série Bleue — I">
+          <div class="card-meta">
+            <p class="card-title">Série Bleue — I</p>
+            <p class="card-subtitle">Crayon & encre · 2024</p>
+            <p class="card-hint">↑ Cliquer pour voir l'évolution</p>
+          </div>
+        </div>
+
+        <!-- DESSIN 2 -->
+        <div class="card"
+          data-title="Portrait Automnal"
+          data-steps='[
+            {"label":"Esquisse",        "name":"Silhouette au fusain","src":"images/d2-esquisse.jpg"},
+            {"label":"Crayonné",        "name":"Traits du visage",    "src":"images/d2-crayonne.jpg"},
+            {"label":"Mise en couleur", "name":"Lavis ocre & terre",  "src":"images/d2-couleur.jpg"},
+            {"label":"Final",           "name":"Rehauts & détails",   "src":"images/d2-final.jpg"}
+          ]'>
+          <img src="images/dessin2.jpg" alt="Portrait Automnal">
+          <div class="card-meta">
+            <p class="card-title">Portrait Automnal</p>
+            <p class="card-subtitle">Aquarelle · 2024</p>
+            <p class="card-hint">↑ Cliquer pour voir l'évolution</p>
+          </div>
+        </div>
+
+        <!-- DESSIN 3 -->
+        <div class="card"
+          data-title="Forêt Intérieure"
+          data-steps='[
+            {"label":"Esquisse",        "name":"Lignes directrices",  "src":"images/d3-esquisse.jpg"},
+            {"label":"Crayonné",        "name":"Végétaux & branches", "src":"images/d3-crayonne.jpg"},
+            {"label":"Mise en couleur", "name":"Verts au pastel",     "src":"images/d3-couleur.jpg"},
+            {"label":"Final",           "name":"Lumière & texture",   "src":"images/d3-final.jpg"}
+          ]'>
+          <img src="images/dessin3.jpg" alt="Forêt Intérieure">
+          <div class="card-meta">
+            <p class="card-title">Forêt Intérieure</p>
+            <p class="card-subtitle">Pastel sec · 2023</p>
+            <p class="card-hint">↑ Cliquer pour voir l'évolution</p>
+          </div>
+        </div>
+
+        <!-- DESSIN 4 — Dupliquez ce bloc pour en ajouter d'autres -->
+        <div class="card"
+          data-title="Portrait — IV"
+          data-steps='[
+            {"label":"Esquisse",        "name":"Premiers traits",     "src":"images/d4-esquisse.jpg"},
+            {"label":"Crayonné",        "name":"Structure & volumes", "src":"images/d4-crayonne.jpg"},
+            {"label":"Mise en couleur", "name":"Ombres & lumières",   "src":"images/d4-couleur.jpg"},
+            {"label":"Final",           "name":"Finition graphite",   "src":"images/d4-final.jpg"}
+          ]'>
+          <img src="images/dessin4.jpg" alt="Portrait IV">
+          <div class="card-meta">
+            <p class="card-title">Portrait — IV</p>
+            <p class="card-subtitle">Graphite · 2025</p>
+            <p class="card-hint">↑ Cliquer pour voir l'évolution</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="gallery-progress-bar">
+      <div class="gallery-progress-fill" id="progress-fill"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Overlay évolution -->
+<div class="evo-overlay" id="evo-overlay">
+  <div class="evo-backdrop" id="evo-backdrop"></div>
+  <div class="evo-panel">
+    <button class="evo-close" id="evo-close">✕</button>
+    <p class="evo-eyebrow">Évolution du dessin</p>
+    <h2 class="evo-title" id="evo-title"></h2>
+    <div class="evo-steps" id="evo-steps"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-col">
+      <h4 data-i18n="footer.brand">Sarah's Art</h4>
+      <p data-i18n="footer.desc">Traditional graphite and charcoal portrait artist.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer.explore">Explore</h4>
+      <ul>
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="art.html" data-i18n="nav.gallery">Gallery</a></li>
+        <li><a href="process.html" data-i18n="nav.process">Process</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer.contact">Contact</h4>
+      <p><a href="contact.html">stephanie.andrieux.sa@gmail.com</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span data-i18n="footer.copyright">© 2026 Sarah's Art Portfolio. All rights reserved.</span>
+    <span data-i18n="footer.tagline">Handcrafted with Passion</span>
+  </div>
+</footer>
+
+<script src="language.js"></script>
+
+<script>
+  /* Scroll horizontal */
+  const wrapper = document.getElementById('gallery-wrapper');
+  const track   = document.getElementById('gallery-track');
+  const fill    = document.getElementById('progress-fill');
+
+  function updateScroll() {
+    const rect     = wrapper.getBoundingClientRect();
+    const progress = Math.min(Math.max(-rect.top / (wrapper.offsetHeight - window.innerHeight), 0), 1);
+    const maxShift = track.scrollWidth - track.parentElement.offsetWidth + 32;
+    track.style.transform = `translateX(-${progress * maxShift}px)`;
+    fill.style.width = `${progress * 100}%`;
+  }
+
+  window.addEventListener('scroll', updateScroll, { passive: true });
+  window.addEventListener('resize', updateScroll);
+  updateScroll();
+
+  /* Overlay évolution */
+  const overlay  = document.getElementById('evo-overlay');
+  const evoTitle = document.getElementById('evo-title');
+  const evoSteps = document.getElementById('evo-steps');
+
+  function openOverlay(card) {
+    const steps = JSON.parse(card.dataset.steps);
+    evoTitle.textContent = card.dataset.title;
+    evoSteps.innerHTML = '';
+
+    steps.forEach((step, i) => {
+      if (i > 0) {
+        const arrow = document.createElement('div');
+        arrow.className = 'evo-arrow';
+        arrow.textContent = '→';
+        evoSteps.appendChild(arrow);
+      }
+      const el = document.createElement('div');
+      el.className = 'evo-step';
+      el.innerHTML = `
+        <div class="evo-step-img"><img src="${step.src}" alt="${step.label}"></div>
+        <p class="evo-step-label">0${i+1} — ${step.label}</p>
+        <p class="evo-step-name">${step.name}</p>
+      `;
+      evoSteps.appendChild(el);
+    });
+
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeOverlay() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.card').forEach(c => c.addEventListener('click', () => openOverlay(c)));
+  document.getElementById('evo-backdrop').addEventListener('click', closeOverlay);
+  document.getElementById('evo-close').addEventListener('click', closeOverlay);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeOverlay(); });
+</script>
+
+</body>
+</html>
