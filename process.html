@@ -1,22 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>PAGE TITLE HERE</title>
-  <meta name="description" content="PAGE DESCRIPTION HERE">
-
+  <title>Process — Sarah's Art</title>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="language.css">
-
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: Arial, sans-serif;
@@ -24,10 +15,10 @@
       color: #2b2b2b;
       line-height: 1.7;
       overflow-x: hidden;
+      min-height: 100vh;
     }
 
-    /* ================= NAVIGATION ================= */
-
+    /* ================= NAV ================= */
     nav {
       display: flex;
       justify-content: space-between;
@@ -38,23 +29,9 @@
       top: 0;
       z-index: 1000;
     }
-
-    .logo-img {
-      height: clamp(50px, 15vw, 90px);
-      max-width: 100%;
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-    }
-
+    .logo-img { height: clamp(50px, 15vw, 90px); max-width: 100%; }
+    .nav-right { display: flex; align-items: center; gap: 25px; }
+    .nav-links { display: flex; align-items: center; }
     .nav-links a {
       color: #faf6ef;
       text-decoration: none;
@@ -64,291 +41,348 @@
       text-transform: uppercase;
       position: relative;
     }
-
     .nav-links a::after {
       content: "";
       position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 0;
-      height: 2px;
+      left: 0; bottom: -6px;
+      width: 0; height: 2px;
       background: #c1693c;
       transition: .3s;
     }
+    .nav-links a:hover::after { width: 100%; }
 
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    /* ================= MAIN ================= */
-
-    main {
+    /* ================= HERO TEXT ================= */
+    .process-hero {
       max-width: 1000px;
       margin: auto;
-      padding: 60px 20px 10px;
+      padding: 40px 20px 20px;
     }
-
-    .process-section h1 {
+    .process-hero h1 {
       font-family: 'Archivo Black', sans-serif;
       font-size: 2.4rem;
       color: #2b2420;
       display: inline-block;
       position: relative;
-      margin-bottom: 30px;
+      margin-bottom: 15px;
     }
-
-    .process-section h1::after {
+    .process-hero h1::after {
       content: "";
       position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 60px;
-      height: 4px;
+      left: 0; bottom: -6px;
+      width: 60px; height: 4px;
       background: #c1693c;
     }
-
-    .process-desc {
+    .process-hero p {
       max-width: 700px;
       color: #6f675f;
       font-size: 1.05rem;
       line-height: 1.9;
-      text-align: justify;
-      margin-bottom: 0;
     }
 
-    /* ================= GALERIE HORIZONTALE ================= */
-
-    .gallery-wrapper {
-      position: relative;
-      height: 400vh;
-      /* ↑ Augmentez (ex: 500vh) si le scroll est trop rapide */
-      margin: 0 -20px; /* déborde légèrement du main pour pleine largeur */
+    /* ================= ÉVENTAIL ================= */
+    .fan-section {
+      padding: 40px 40px 80px;
+      max-width: 1300px;
+      margin: auto;
     }
 
-    .gallery-sticky {
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: #faf6ef;
-    }
-
-    .gallery-label {
-      font-family: 'Archivo Black', sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.25em;
+    .fan-hint {
+      text-align: center;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: #c1693c;
-      padding: 2rem 2rem 1rem;
+      margin-bottom: 60px;
     }
 
-    .gallery-track-outer {
-      overflow: hidden;
-      flex: 1;
-      display: flex;
-      align-items: center;
+    .fan-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 100px 40px;
+      justify-items: center;
+      align-items: end;
     }
 
-    .gallery-track {
-      display: flex;
-      gap: 1.5rem;
-      padding: 0 2rem;
-      will-change: transform;
-    }
-
-    /* Cartes */
-    .card {
-      flex-shrink: 0;
-      width: clamp(220px, 28vw, 360px);
-      height: clamp(300px, 55vh, 500px);
-      border-radius: 6px;
-      overflow: hidden;
+    /* ===== CARTE VERTICALE (défaut) ===== */
+    .fan-item {
       position: relative;
       cursor: pointer;
-      transition: box-shadow 0.4s ease;
-      background: #e8e0d5;
+      width: 260px;
     }
 
-    .card:hover {
-      box-shadow: 0 0 0 2px #c1693c;
+    .fan-stack {
+      position: relative;
+      width: 260px;
+      height: 340px;
     }
 
-    .card img {
-      width: 100%; height: 100%;
-      object-fit: cover; display: block;
-      transition: transform 0.6s ease;
-    }
-
-    .card:hover img { transform: scale(1.04); }
-
-    .card-meta {
+    .fan-card {
       position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 2rem 1.5rem 1.5rem;
-      background: linear-gradient(to top, rgba(43,36,32,0.88), transparent);
-      opacity: 0;
-      transform: translateY(4px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
+      width: 230px;
+      height: 310px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      top: 15px;
+      left: 15px;
+    }
+    .fan-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
     }
 
-    .card:hover .card-meta { opacity: 1; transform: translateY(0); }
+    .fan-card-top {
+      position: absolute;
+      width: 230px;
+      height: 310px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      top: 15px;
+      left: 15px;
+      z-index: 10;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .fan-card-top img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
 
-    .card-title {
+    .fan-item:hover .fan-card-top {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(193,105,60,0.3);
+    }
+
+    /* 4 étapes */
+    .fan-item.steps-4 .fan-card:nth-child(1) { transform: rotate(-18deg) translate(-38px, 10px); z-index: 1; }
+    .fan-item.steps-4 .fan-card:nth-child(2) { transform: rotate(-9deg) translate(-19px, 5px); z-index: 2; }
+    .fan-item.steps-4 .fan-card:nth-child(3) { transform: rotate(0deg); z-index: 3; }
+    .fan-item.steps-4:hover .fan-card:nth-child(1) { transform: rotate(-30deg) translate(-65px, 18px); }
+    .fan-item.steps-4:hover .fan-card:nth-child(2) { transform: rotate(-15deg) translate(-33px, 8px); }
+    .fan-item.steps-4:hover .fan-card:nth-child(3) { transform: rotate(15deg) translate(33px, 8px); }
+
+    /* 3 étapes */
+    .fan-item.steps-3 .fan-card:nth-child(1) { transform: rotate(-14deg) translate(-26px, 8px); z-index: 1; }
+    .fan-item.steps-3 .fan-card:nth-child(2) { transform: rotate(0deg); z-index: 2; }
+    .fan-item.steps-3:hover .fan-card:nth-child(1) { transform: rotate(-26deg) translate(-55px, 15px); }
+    .fan-item.steps-3:hover .fan-card:nth-child(2) { transform: rotate(13deg) translate(28px, 6px); }
+
+    /* 2 étapes */
+    .fan-item.steps-2 .fan-card:nth-child(1) { transform: rotate(-12deg) translate(-20px, 6px); z-index: 1; }
+    .fan-item.steps-2:hover .fan-card:nth-child(1) { transform: rotate(-24deg) translate(-45px, 12px); }
+
+    /* ===== CARTE HORIZONTALE ===== */
+    .fan-item.horizontal {
+      width: 340px;
+    }
+    .fan-item.horizontal .fan-stack {
+      width: 340px;
+      height: 260px;
+    }
+    .fan-item.horizontal .fan-card {
+      width: 300px;
+      height: 210px;
+      top: 15px;
+      left: 15px;
+    }
+    .fan-item.horizontal .fan-card img {
+      object-fit: cover;
+      object-position: center;
+    }
+    .fan-item.horizontal .fan-card-top {
+      width: 300px;
+      height: 210px;
+      top: 15px;
+      left: 15px;
+    }
+    .fan-item.horizontal .fan-card-top img {
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* ===== LABEL TITRE — plus grand, sur 2 lignes si besoin ===== */
+    .fan-label {
+      text-align: center;
+      margin-top: 65px;
       font-family: 'Archivo Black', sans-serif;
-      font-size: 0.95rem;
-      color: #faf6ef;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      color: #2b2420;
+      transition: color 0.3s;
+      line-height: 1.3;
+      white-space: normal;
+      word-break: break-word;
+      max-width: 100%;
+      position: relative;
+      z-index: 20; /* toujours au-dessus des cartes en éventail */
     }
+    .fan-item:hover .fan-label { color: #c1693c; }
 
-    .card-subtitle {
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #c1693c;
-      margin-top: 0.3rem;
-    }
-
-    .card-hint {
-      font-size: 0.6rem;
+    .fan-steps-count {
+      text-align: center;
+      font-size: 0.65rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(193,105,60,0.65);
-      margin-top: 0.6rem;
-    }
-
-    /* Barre de progression */
-    .gallery-progress-bar {
-      height: 2px;
-      background: #e0d8cf;
-      margin: 1rem 2rem 1.5rem;
+      color: #c1693c;
+      margin-top: 5px;
+      opacity: 0;
+      transition: opacity 0.3s;
       position: relative;
-      border-radius: 2px;
+      z-index: 20;
     }
+    .fan-item:hover .fan-steps-count { opacity: 1; }
 
-    .gallery-progress-fill {
-      position: absolute; top: 0; left: 0;
-      height: 100%; background: #c1693c;
-      width: 0%; transition: width 0.05s linear;
-      border-radius: 2px;
-    }
-
-    /* ================= OVERLAY ÉVOLUTION ================= */
-
-    .evo-overlay {
-      position: fixed; inset: 0; z-index: 2000;
-      display: flex; align-items: center; justify-content: center;
-      pointer-events: none; opacity: 0;
+    /* ================= OVERLAY ================= */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
       transition: opacity 0.4s ease;
     }
-
-    .evo-overlay.active {
-      pointer-events: all;
+    .overlay.active {
       opacity: 1;
+      pointer-events: all;
+    }
+    .overlay-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(43,36,32,0.93);
+      backdrop-filter: blur(8px);
+    }
+    .overlay-panel {
+      position: relative;
+      z-index: 1;
+      width: min(95vw, 1100px);
+      max-height: 88vh;
+      overflow: hidden;
+      padding: 2rem 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .overlay-header {
+      flex-shrink: 0;
+      margin-bottom: 1.5rem;
     }
 
-    .evo-backdrop {
-      position: absolute; inset: 0;
-      background: rgba(43,36,32,0.92);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-    }
-
-    .evo-panel {
-      position: relative; z-index: 1;
-      width: min(92vw, 1100px);
-      max-height: 90vh;
-      overflow-y: auto;
-      padding: 3rem 2.5rem 2.5rem;
-    }
-
-    .evo-close {
-      position: absolute; top: 0; right: 0;
+    /* Croix rotative */
+    .overlay-close {
+      position: absolute;
+      top: 0.5rem; right: 0.5rem;
       background: none; border: none;
-      color: #6f675f; font-size: 1.4rem;
-      cursor: pointer; padding: 0.5rem; line-height: 1;
-      transition: color 0.2s;
+      color: #6f675f;
+      font-size: 1.6rem;
+      cursor: pointer;
+      line-height: 1;
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      transition: color 0.3s, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s;
+    }
+    .overlay-close:hover {
+      color: #faf6ef;
+      transform: rotate(180deg) scale(1.2);
+      background: rgba(193,105,60,0.2);
     }
 
-    .evo-close:hover { color: #faf6ef; }
-
-    .evo-eyebrow {
+    .overlay-eyebrow {
       font-size: 0.65rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: #c1693c;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
-
-    .evo-title {
+    .overlay-title {
       font-family: 'Archivo Black', sans-serif;
-      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
       color: #faf6ef;
-      margin-bottom: 2.5rem;
     }
 
-    .evo-steps {
+    /* Photos progression */
+    .progress-row {
       display: flex;
-      gap: 1.2rem;
-      align-items: flex-end;
-    }
-
-    .evo-step {
+      gap: 1rem;
+      align-items: flex-start;
       flex: 1;
-      display: flex; flex-direction: column; gap: 0.75rem;
-      opacity: 0; transform: translateY(40px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      overflow: hidden;
     }
 
-    .evo-step:nth-child(1) { transition-delay: 0.05s; }
-    .evo-step:nth-child(2) { transition-delay: 0.18s; }
-    .evo-step:nth-child(3) { transition-delay: 0.31s; }
-    .evo-step:nth-child(4) { transition-delay: 0.44s; }
+    .progress-step {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .overlay.active .progress-step { opacity: 1; transform: translateY(0); }
+    .progress-step:nth-child(1) { transition-delay: 0.05s; }
+    .progress-step:nth-child(2) { transition-delay: 0.12s; }
+    .progress-step:nth-child(3) { transition-delay: 0.19s; }
+    .progress-step:nth-child(4) { transition-delay: 0.26s; }
+    .progress-step:nth-child(5) { transition-delay: 0.33s; }
+    .progress-step:nth-child(6) { transition-delay: 0.40s; }
 
-    .evo-overlay.active .evo-step { opacity: 1; transform: translateY(0); }
-
-    .evo-step-img {
-      border-radius: 4px;
+    .step-img {
+      border-radius: 6px;
       overflow: hidden;
       background: #2b2420;
+      cursor: zoom-in;
+    }
+    .step-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 55vh;
+      object-fit: contain;
+      transition: transform 0.4s ease;
+    }
+    .step-img:hover img {
+      transform: scale(1.06);
     }
 
-    /* hauteurs croissantes = effet "montée" visuelle */
-    .evo-step:nth-child(1) .evo-step-img { height: clamp(120px, 18vh, 180px); }
-    .evo-step:nth-child(2) .evo-step-img { height: clamp(150px, 24vh, 230px); }
-    .evo-step:nth-child(3) .evo-step-img { height: clamp(180px, 30vh, 290px); }
-    .evo-step:nth-child(4) .evo-step-img { height: clamp(210px, 36vh, 340px); }
-
-    .evo-step-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-    .evo-arrow {
-      flex-shrink: 0; width: 1.5rem;
-      display: flex; align-items: center; justify-content: center;
-      padding-bottom: 2rem; color: #4a3e38;
-      opacity: 0; transition: opacity 0.4s ease 0.5s;
+    .progress-arrow {
+      flex-shrink: 0;
+      width: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 40px;
+      color: #4a3e38;
+      font-size: 0.9rem;
+      opacity: 0;
+      transition: opacity 0.4s ease 0.4s;
     }
+    .overlay.active .progress-arrow { opacity: 1; }
 
-    .evo-overlay.active .evo-arrow { opacity: 1; }
-
-    .evo-step-label {
-      font-size: 0.6rem; letter-spacing: 0.2em;
-      text-transform: uppercase; color: #6f675f;
+    .step-num {
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #6f675f;
+      flex-shrink: 0;
     }
-
-    .evo-step-name { font-size: 0.85rem; color: #faf6ef; }
-
-    .evo-step:last-child .evo-step-label,
-    .evo-step:last-child .evo-step-name { color: #c1693c; }
+    .progress-step:last-child .step-num { color: #c1693c; }
 
     /* ================= FOOTER ================= */
-
     footer {
       background: #2b2420;
       color: rgba(250,246,239,.7);
       padding: 60px 40px 30px;
     }
-
     .footer-container {
       max-width: 1200px;
       margin: auto;
@@ -357,7 +391,6 @@
       gap: 40px;
       margin-bottom: 40px;
     }
-
     .footer-col h4 {
       color: #c1693c;
       font-family: 'Archivo Black', sans-serif;
@@ -365,17 +398,10 @@
       font-size: 1rem;
       letter-spacing: 1px;
     }
-
-    .footer-col p,
-    .footer-col a {
-      color: #6f675f;
-      text-decoration: none;
-    }
-
+    .footer-col p, .footer-col a { color: #6f675f; text-decoration: none; }
     .footer-col ul { list-style: none; }
     .footer-col li { margin-bottom: 10px; }
     .footer-col a:hover { color: #c1693c; }
-
     .footer-bottom {
       max-width: 1200px;
       margin: auto;
@@ -391,22 +417,34 @@
     }
 
     /* ================= MOBILE ================= */
-
+    @media (max-width: 900px) {
+      .fan-grid { grid-template-columns: repeat(2, 1fr); gap: 80px 30px; }
+    }
     @media (max-width: 768px) {
       nav { flex-direction: column; gap: 15px; padding: 20px; }
       .nav-right { flex-direction: column; }
       .nav-links { flex-wrap: wrap; justify-content: center; gap: 20px; }
       .nav-links a { margin-left: 0; }
+      .fan-grid { grid-template-columns: repeat(2, 1fr); gap: 70px 20px; }
+      .fan-item { width: 140px; }
+      .fan-stack { width: 140px; height: 190px; }
+      .fan-card, .fan-card-top { width: 120px; height: 165px; top: 10px; left: 10px; }
+      .fan-item.horizontal { width: 180px; }
+      .fan-item.horizontal .fan-stack { width: 180px; height: 140px; }
+      .fan-item.horizontal .fan-card,
+      .fan-item.horizontal .fan-card-top { width: 155px; height: 110px; }
+      .fan-label { font-size: 0.85rem; margin-top: 30px; }
       .footer-container { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; text-align: center; }
-      .evo-steps { flex-direction: column; align-items: stretch; }
-      .evo-step-img { height: 180px !important; }
-      .evo-arrow { display: none; }
+      .progress-row { flex-direction: column; overflow-y: auto; }
+      .progress-arrow { display: none; }
+      .overlay-panel { padding: 1.5rem 1rem; max-height: 92vh; }
+    }
+    @media (max-width: 480px) {
+      .fan-grid { grid-template-columns: 1fr; justify-items: center; }
     }
   </style>
-
 </head>
-
 <body>
 
 <nav>
@@ -426,115 +464,135 @@
   </div>
 </nav>
 
-<main>
+<div class="process-hero">
+  <h1 data-i18n="nav.process">Process</h1>
+  <p data-i18n="process.desc"></p>
+</div>
 
-  <section class="process-section">
-    <h1 data-i18n="nav.process">Process</h1>
-    <p class="process-desc" data-i18n="process.desc"></p>
-  </section>
+<div class="fan-section">
+  <p class="fan-hint">↓ Cliquez sur un dessin pour voir son évolution</p>
 
-</main>
+  <div class="fan-grid">
 
-<!-- =========================================
-  GALERIE HORIZONTALE
-  · Remplacez src="images/dessinX.jpg" par vos images principales
-  · Dans data-steps, mettez les 4 images d'évolution de chaque dessin
-  · Dupliquez un bloc .card pour ajouter d'autres œuvres
-========================================= -->
-<section class="gallery-wrapper" id="gallery-wrapper">
-  <div class="gallery-sticky">
-
-    
-
-    <div class="gallery-track-outer">
-      <div class="gallery-track" id="gallery-track">
-
-        <!-- DESSIN 1 -->
-        <div class="card"
-          data-title="Série Bleue — I"
-          data-steps='[
-            {"label":"Esquisse",        "name":"Premiers traits",     "src":"images/d1-esquisse.jpg"},
-            {"label":"Crayonné",        "name":"Structure & volumes", "src":"images/d1-crayonne.jpg"},
-            {"label":"Mise en couleur", "name":"Aplats d\u0027encre", "src":"images/d1-couleur.jpg"},
-            {"label":"Final",           "name":"Détails & lumières",  "src":"images/d1-final.jpg"}
-          ]'>
-          <img src="images/dessin1.jpg" alt="Série Bleue — I">
-          <div class="card-meta">
-            <p class="card-title">Série Bleue — I</p>
-            <p class="card-subtitle">Crayon & encre · 2024</p>
-            <p class="card-hint">↑ Cliquer pour voir l'évolution</p>
-          </div>
-        </div>
-
-        <!-- DESSIN 2 -->
-        <div class="card"
-          data-title="Portrait Automnal"
-          data-steps='[
-            {"label":"Esquisse",        "name":"Silhouette au fusain","src":"images/d2-esquisse.jpg"},
-            {"label":"Crayonné",        "name":"Traits du visage",    "src":"images/d2-crayonne.jpg"},
-            {"label":"Mise en couleur", "name":"Lavis ocre & terre",  "src":"images/d2-couleur.jpg"},
-            {"label":"Final",           "name":"Rehauts & détails",   "src":"images/d2-final.jpg"}
-          ]'>
-          <img src="images/dessin2.jpg" alt="Portrait Automnal">
-          <div class="card-meta">
-            <p class="card-title">Portrait Automnal</p>
-            <p class="card-subtitle">Aquarelle · 2024</p>
-            <p class="card-hint">↑ Cliquer pour voir l'évolution</p>
-          </div>
-        </div>
-
-        <!-- DESSIN 3 -->
-        <div class="card"
-          data-title="Forêt Intérieure"
-          data-steps='[
-            {"label":"Esquisse",        "name":"Lignes directrices",  "src":"images/d3-esquisse.jpg"},
-            {"label":"Crayonné",        "name":"Végétaux & branches", "src":"images/d3-crayonne.jpg"},
-            {"label":"Mise en couleur", "name":"Verts au pastel",     "src":"images/d3-couleur.jpg"},
-            {"label":"Final",           "name":"Lumière & texture",   "src":"images/d3-final.jpg"}
-          ]'>
-          <img src="images/dessin3.jpg" alt="Forêt Intérieure">
-          <div class="card-meta">
-            <p class="card-title">Forêt Intérieure</p>
-            <p class="card-subtitle">Pastel sec · 2023</p>
-            <p class="card-hint">↑ Cliquer pour voir l'évolution</p>
-          </div>
-        </div>
-
-        <!-- DESSIN 4 — Dupliquez ce bloc pour en ajouter d'autres -->
-        <div class="card"
-          data-title="Portrait — IV"
-          data-steps='[
-            {"label":"Esquisse",        "name":"Premiers traits",     "src":"images/d4-esquisse.jpg"},
-            {"label":"Crayonné",        "name":"Structure & volumes", "src":"images/d4-crayonne.jpg"},
-            {"label":"Mise en couleur", "name":"Ombres & lumières",   "src":"images/d4-couleur.jpg"},
-            {"label":"Final",           "name":"Finition graphite",   "src":"images/d4-final.jpg"}
-          ]'>
-          <img src="images/dessin4.jpg" alt="Portrait IV">
-          <div class="card-meta">
-            <p class="card-title">Portrait — IV</p>
-            <p class="card-subtitle">Graphite · 2025</p>
-            <p class="card-hint">↑ Cliquer pour voir l'évolution</p>
-          </div>
-        </div>
-
+    <!-- 1 — Glace (4 étapes) -->
+    <div class="fan-item steps-4"
+      data-title="La pause glace"
+      data-steps='[
+        {"label":"Étape 1","src":"Images/Glace1.jpg"},
+        {"label":"Étape 2","src":"Images/Glace2.jpg"},
+        {"label":"Étape 3","src":"Images/Glace3.jpg"},
+        {"label":"Final","src":"Images/Glace4.jpg"}
+      ]'>
+      <div class="fan-stack">
+        <div class="fan-card"><img src="Images/Glace1.jpg" alt="Glace étape 1"></div>
+        <div class="fan-card"><img src="Images/Glace2.jpg" alt="Glace étape 2"></div>
+        <div class="fan-card"><img src="Images/Glace3.jpg" alt="Glace étape 3"></div>
+        <div class="fan-card-top"><img src="Images/Glace4.jpg" alt="Glace final"></div>
       </div>
+      <p class="fan-label">La pause glace</p>
+      <p class="fan-steps-count">4 étapes</p>
     </div>
 
-    <div class="gallery-progress-bar">
-      <div class="gallery-progress-fill" id="progress-fill"></div>
+    <!-- 2 — Chat (4 étapes) -->
+    <div class="fan-item steps-4"
+      data-title="Un refuge inattendu"
+      data-steps='[
+        {"label":"Étape 1","src":"Images/Chat1.jpg"},
+        {"label":"Étape 2","src":"Images/Chat2.jpg"},
+        {"label":"Étape 3","src":"Images/Chat3.jpg"},
+        {"label":"Final","src":"Images/Chat4.jpg"}
+      ]'>
+      <div class="fan-stack">
+        <div class="fan-card"><img src="Images/Chat1.jpg" alt="Chat étape 1"></div>
+        <div class="fan-card"><img src="Images/Chat2.jpg" alt="Chat étape 2"></div>
+        <div class="fan-card"><img src="Images/Chat3.jpg" alt="Chat étape 3"></div>
+        <div class="fan-card-top"><img src="Images/Chat4.jpg" alt="Chat final"></div>
+      </div>
+      <p class="fan-label">Un refuge inattendu</p>
+      <p class="fan-steps-count">4 étapes</p>
+    </div>
+
+    <!-- 3 — Frère (3 étapes) HORIZONTAL -->
+    <div class="fan-item steps-3 horizontal"
+      data-title="Lien fraternel"
+      data-steps='[
+        {"label":"Étape 1","src":"Images/Frère1.jpg"},
+        {"label":"Étape 2","src":"Images/Frère2.jpg"},
+        {"label":"Final","src":"Images/Frère3.jpg"}
+      ]'>
+      <div class="fan-stack">
+        <div class="fan-card"><img src="Images/Frère1.jpg" alt="Frère étape 1"></div>
+        <div class="fan-card"><img src="Images/Frère2.jpg" alt="Frère étape 2"></div>
+        <div class="fan-card-top"><img src="Images/Frère3.jpg" alt="Frère final"></div>
+      </div>
+      <p class="fan-label">Lien fraternel</p>
+      <p class="fan-steps-count">3 étapes</p>
+    </div>
+
+    <!-- 4 — Cheval (4 étapes) -->
+    <div class="fan-item steps-4"
+      data-title="Sagesse équine"
+      data-steps='[
+        {"label":"Étape 1","src":"Images/Cheval1.jpeg"},
+        {"label":"Étape 2","src":"Images/Cheval2.jpeg"},
+        {"label":"Étape 3","src":"Images/Cheval3.jpeg"},
+        {"label":"Final","src":"Images/Cheval4.jpeg"}
+      ]'>
+      <div class="fan-stack">
+        <div class="fan-card"><img src="Images/Cheval1.jpeg" alt="Cheval étape 1"></div>
+        <div class="fan-card"><img src="Images/Cheval2.jpeg" alt="Cheval étape 2"></div>
+        <div class="fan-card"><img src="Images/Cheval3.jpeg" alt="Cheval étape 3"></div>
+        <div class="fan-card-top"><img src="Images/Cheval4.jpeg" alt="Cheval final"></div>
+      </div>
+      <p class="fan-label">Sagesse équine</p>
+      <p class="fan-steps-count">4 étapes</p>
+    </div>
+
+    <!-- 5 — Princess (2 étapes) -->
+    <div class="fan-item steps-2"
+      data-title="La princesse"
+      data-steps='[
+        {"label":"Étape 1","src":"Images/Princess1.jpg"},
+        {"label":"Final","src":"Images/Princess2.jpeg"}
+      ]'>
+      <div class="fan-stack">
+        <div class="fan-card"><img src="Images/Princess1.jpg" alt="Princess étape 1"></div>
+        <div class="fan-card-top"><img src="Images/Princess2.jpeg" alt="Princess final"></div>
+      </div>
+      <p class="fan-label">La princesse</p>
+      <p class="fan-steps-count">2 étapes</p>
+    </div>
+
+    <!-- 6 — Ado (3 étapes) -->
+    <div class="fan-item steps-3"
+      data-title="Sous les feuillages"
+      data-steps='[
+        {"label":"Étape 1","src":"Images/Ado1.jpg"},
+        {"label":"Étape 2","src":"Images/Ado2.jpg"},
+        {"label":"Final","src":"Images/Ado3.jpg"}
+      ]'>
+      <div class="fan-stack">
+        <div class="fan-card"><img src="Images/Ado1.jpg" alt="Ado étape 1"></div>
+        <div class="fan-card"><img src="Images/Ado2.jpg" alt="Ado étape 2"></div>
+        <div class="fan-card-top"><img src="Images/Ado3.jpg" alt="Ado final"></div>
+      </div>
+      <p class="fan-label">Sous les feuillages</p>
+      <p class="fan-steps-count">3 étapes</p>
     </div>
 
   </div>
-</section>
+</div>
 
-<!-- Overlay évolution -->
-<div class="evo-overlay" id="evo-overlay">
-  <div class="evo-backdrop" id="evo-backdrop"></div>
-  <div class="evo-panel">
-    <button class="evo-close" id="evo-close">✕</button>
-    <p class="evo-eyebrow">Évolution du dessin</p>
-    <h2 class="evo-title" id="evo-title"></h2>
-    <div class="evo-steps" id="evo-steps"></div>
+<!-- OVERLAY -->
+<div class="overlay" id="overlay">
+  <div class="overlay-backdrop" id="overlay-backdrop"></div>
+  <div class="overlay-panel">
+    <button class="overlay-close" id="overlay-close">✕</button>
+    <div class="overlay-header">
+      <p class="overlay-eyebrow">Évolution du dessin</p>
+      <h2 class="overlay-title" id="overlay-title"></h2>
+    </div>
+    <div class="progress-row" id="progress-row"></div>
   </div>
 </div>
 
@@ -566,50 +624,30 @@
 </footer>
 
 <script src="language.js"></script>
-
 <script>
-  /* Scroll horizontal */
-  const wrapper = document.getElementById('gallery-wrapper');
-  const track   = document.getElementById('gallery-track');
-  const fill    = document.getElementById('progress-fill');
-
-  function updateScroll() {
-    const rect     = wrapper.getBoundingClientRect();
-    const progress = Math.min(Math.max(-rect.top / (wrapper.offsetHeight - window.innerHeight), 0), 1);
-    const maxShift = track.scrollWidth - track.parentElement.offsetWidth + 32;
-    track.style.transform = `translateX(-${progress * maxShift}px)`;
-    fill.style.width = `${progress * 100}%`;
-  }
-
-  window.addEventListener('scroll', updateScroll, { passive: true });
-  window.addEventListener('resize', updateScroll);
-  updateScroll();
-
-  /* Overlay évolution */
-  const overlay  = document.getElementById('evo-overlay');
-  const evoTitle = document.getElementById('evo-title');
-  const evoSteps = document.getElementById('evo-steps');
+  const overlay = document.getElementById('overlay');
+  const oTitle  = document.getElementById('overlay-title');
+  const oRow    = document.getElementById('progress-row');
 
   function openOverlay(card) {
     const steps = JSON.parse(card.dataset.steps);
-    evoTitle.textContent = card.dataset.title;
-    evoSteps.innerHTML = '';
+    oTitle.textContent = card.dataset.title;
+    oRow.innerHTML = '';
 
     steps.forEach((step, i) => {
       if (i > 0) {
         const arrow = document.createElement('div');
-        arrow.className = 'evo-arrow';
+        arrow.className = 'progress-arrow';
         arrow.textContent = '→';
-        evoSteps.appendChild(arrow);
+        oRow.appendChild(arrow);
       }
       const el = document.createElement('div');
-      el.className = 'evo-step';
+      el.className = 'progress-step';
       el.innerHTML = `
-        <div class="evo-step-img"><img src="${step.src}" alt="${step.label}"></div>
-        <p class="evo-step-label">0${i+1} — ${step.label}</p>
-        <p class="evo-step-name">${step.name}</p>
+        <div class="step-img"><img src="${step.src}" alt="${step.label}"></div>
+        <p class="step-num">0${i+1} — ${step.label}</p>
       `;
-      evoSteps.appendChild(el);
+      oRow.appendChild(el);
     });
 
     overlay.classList.add('active');
@@ -621,9 +659,11 @@
     document.body.style.overflow = '';
   }
 
-  document.querySelectorAll('.card').forEach(c => c.addEventListener('click', () => openOverlay(c)));
-  document.getElementById('evo-backdrop').addEventListener('click', closeOverlay);
-  document.getElementById('evo-close').addEventListener('click', closeOverlay);
+  document.querySelectorAll('.fan-item').forEach(c =>
+    c.addEventListener('click', () => openOverlay(c))
+  );
+  document.getElementById('overlay-backdrop').addEventListener('click', closeOverlay);
+  document.getElementById('overlay-close').addEventListener('click', closeOverlay);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeOverlay(); });
 </script>
 
