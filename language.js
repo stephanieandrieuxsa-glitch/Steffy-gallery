@@ -9,9 +9,14 @@
         index: { title: "Sarah's Art Portfolio", description: "Explore Sarah's graphite art portfolio, featuring realistic drawings, child portraits, and custom pencil art commissions." },
         art: { title: "Gallery — Sarah's Art Portfolio", description: "Explore Sarah's graphite art gallery, showcasing realistic portrait studies, animal art, and unique graphite drawings." },
         about: { title: "About — Sarah's Art Portfolio", description: "Read about Sarah's artistic journey, her techniques combining graphite and charcoal, and her traditional drawing studio." },
-        contact: { title: "Contact — Sarah's Art Portfolio", description: "Get in touch with Sarah for portrait study drawings, custom graphite illustrations, and pencil art commissions." }
+        contact: { title: "Contact — Sarah's Art Portfolio", description: "Get in touch with Sarah for portrait study drawings, custom graphite illustrations, and pencil art commissions."
+      }
       },
-      nav: { home: 'Home', gallery: 'Gallery', about: 'About', contact: 'Contact' },
+       process: {
+        title: "Process — Sarah's Art Portfolio",
+        description: "Discover the different stages behind Sarah's graphite and charcoal drawings."
+      },
+      nav: { home: 'Home', gallery: 'Gallery', process: "Process", about: 'About', contact: 'Contact' },
       lang: { label: 'Choose language' },
       footer: {
         brand: "Sarah's Art",
@@ -93,16 +98,23 @@
           { nom: 'Brotherly bond', description: 'This double portrait is particularly close to my heart. I wanted to capture the beautiful complicity and boundless energy that unites these two brothers. Through their mischievous smiles and sparkling eyes, I tried to catch that precious brotherly bond, built on shared games and obvious affection.\n\nI invested a lot of effort into the contrast between their two faces and the work on their hair, while creating a beautiful sense of unity thanks to the soft, luminous background that makes their expressions stand out. Although they each have their own distinct features and character, their direct, lively gazes complement each other perfectly.\n\nIt is a drawing filled with affection, created with a lot of tenderness. For this reason, it is not for sale: this artwork has already found its forever home and hangs proudly on the walls of their family home.', details: 'A3 size (29.7 × 42 cm) • 240 gsm Paper • 14 Hours of Work • Original Artwork', price: 'Private collection' },
           { nom: 'Spirit of adventure', description: 'For this new piece, I wanted to explore a different path and let myself be carried away by the magic of watercolor. I set down my usual pencils to play with the transparency of water and the warmth of sepia and burnt sienna pigments.\n\nThe idea was to make this old sailing ship emerge like a distant memory, an almost ghostly apparition floating in the mist. Rather than seeking meticulous realism, I let the brushstrokes freely sketch the volume of the sails and the structure of the hull. The paint lives, spreads, and lets the imagination fill in the blanks. This gives the whole piece a very dreamlike and deeply nostalgic feel.\n\nIt is a more spontaneous and fluid creation, designed as a true invitation to travel. I hope this poetic atmosphere will take you on a beautiful journey to new horizons.', details: 'A3 size (29.7 × 42 cm) • 240 gsm Paper • 16 Hours of Work • Original Artwork', price: '€480' }
         ]
-      }
+      },
+      process: {
+        title: "Process",
+        desc: "Discover a selection of drawings accompanied by the different stages of their creation. From the first pencil strokes to the finished drawing, these images show the evolution of each artwork."
+    },
     },
     fr: {
       meta: {
         index: { title: "Portfolio d'art — Sarah", description: "Découvrez le portfolio de Sarah : dessins au graphite, portraits réalistes, portraits d'enfants et commandes sur mesure." },
         art: { title: "Galerie — Portfolio d'art de Sarah", description: "Explorez la galerie de Sarah : études de portraits, art animalier et dessins uniques au graphite." },
         about: { title: "À propos — Portfolio d'art de Sarah", description: "Découvrez le parcours artistique de Sarah, ses techniques mêlant graphite et fusain, et son atelier de dessin traditionnel." },
-        contact: { title: "Contact — Portfolio d'art de Sarah", description: "Contactez Sarah pour des portraits, illustrations au graphite sur mesure et commandes de dessins au crayon et au fusain." }
-      },
-      nav: { home: 'Accueil', gallery: 'Galerie', about: 'À propos', contact: 'Contact' },
+        contact: { title: "Contact — Portfolio d'art de Sarah", description: "Contactez Sarah pour des portraits, illustrations au graphite sur mesure et commandes de dessins au crayon et au fusain." },
+        process: {
+          title: "Coulisses — Portfolio d'art de Sarah", description: "Découvrez les différentes étapes de création des dessins de Sarah."
+    }
+    },
+      nav: { home: 'Accueil', gallery: 'Galerie', process: "Coulisses", about: 'À propos', contact: 'Contact' },
       lang: { label: 'Choisir la langue' },
       footer: {
         brand: "L'art de Sarah",
@@ -184,21 +196,27 @@
           { nom: 'Lien fraternel', description: 'Ce double portrait me tient particulièrement à cœur. J\'ai voulu capturer la belle complicité et l\'énergie débordante qui unissent ces deux frères. À travers leurs sourires espiègles et leurs yeux pétillants, j\'ai essayé de saisir ce précieux lien fraternel, bâti sur des jeux partagés et une affection évidente.\n\nJ\'ai investi beaucoup d\'efforts dans le contraste entre leurs deux visages et le travail sur leurs cheveux, tout en créant un beau sentiment d\'unité grâce à l\'arrière-plan doux et lumineux qui fait ressortir leurs expressions. Bien qu\'ils aient chacun leurs traits et leur caractère distincts, leurs regards directs et vifs se complètent parfaitement.\n\nC\'est un dessin rempli d\'affection, créé avec beaucoup de tendresse. Pour cette raison, il n\'est pas à vendre : cette œuvre a déjà trouvé sa maison pour toujours et trône fièrement sur les murs de leur foyer familial.', details: 'Format A3 (29,7 × 42 cm) • Papier 240 g/m² • 14 heures de travail • Œuvre originale', price: 'Collection privée' },
           { nom: 'Esprit d\'aventure', description: 'Pour cette nouvelle pièce, j\'ai voulu explorer un autre chemin et me laisser emporter par la magie de l\'aquarelle. J\'ai posé mes crayons habituels pour jouer avec la transparence de l\'eau et la chaleur des pigments sépia et sienne brûlée.\n\nL\'idée était de faire émerger ce vieux voilier comme un souvenir lointain, une apparition presque fantomatique flottant dans la brume. Plutôt que de chercher un réalisme minutieux, j\'ai laissé les coups de pinceau esquisser librement le volume des voiles et la structure de la coque. La peinture vit, s\'étend et laisse l\'imagination combler les blancs. Cela donne à l\'ensemble une atmosphère très onirique et profondément nostalgique.\n\nC\'est une création plus spontanée et fluide, conçue comme une véritable invitation au voyage. J\'espère que cette atmosphère poétique vous emmènera vers de beaux horizons.', details: 'Format A3 (29,7 × 42 cm) • Papier 240 g/m² • 16 heures de travail • Œuvre originale', price: '480 €' }
         ]
-      }
+      },
+      process: {
+        title: "Processus",
+        desc: "Découvrez une sélection de dessins accompagnés des différentes étapes de leur création. Des premiers traits de crayon au dessin terminé, ces images montrent l'évolution de chaque œuvre."
+      },
     }
+    
   };
 
   function getNested(obj, path) {
     return path.split('.').reduce(function (o, k) { return o && o[k]; }, obj);
   }
 
-  function detectPage() {
-    const path = window.location.pathname.split('/').pop() || 'index.html';
-    if (path === 'art.html') return 'art';
-    if (path === 'about.html') return 'about';
-    if (path === 'contact.html') return 'contact';
-    return 'index';
-  }
+function detectPage() {
+  const path = window.location.pathname.split('/').pop() || 'index.html';
+  if (path === 'art.html') return 'art';
+  if (path === 'about.html') return 'about';
+  if (path === 'contact.html') return 'contact';
+  if (path === 'process.html') return 'process';
+  return 'index';
+}
 
   function getDefaultLang() {
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -301,10 +319,10 @@
     },
     getGallerySources: function () {
       return [
-        'Images/Dessin1.jpg', 'Images/Dessin2.jpg', 'Images/Dessin3.jpg', 'Images/Dessin4.jpeg',
-        'Images/Dessin5.jpg', 'Images/Dessin6.jpeg', 'Images/Dessin7.jpeg', 'Images/Dessin8.jpeg',
-        'Images/Dessin9.jpeg', 'Images/Dessin10.jpg', 'Images/Dessin11.jpg', 'Images/Dessin12.jpg',
-        'Images/Dessin13.jpg', 'Images/Dessin14.jpg'
+        'Images/Dessin1.webp', 'Images/Dessin2.webp', 'Images/Dessin3.webp', 'Images/Dessin4.webp',
+        'Images/Dessin5.webp', 'Images/Dessin6.webp', 'Images/Dessin7.webp', 'Images/Dessin8.webp',
+        'Images/Dessin9.webp', 'Images/Dessin10.webp', 'Images/Dessin11.webp', 'Images/Dessin12.webp',
+        'Images/Dessin13.webp', 'Images/Dessin14.webp'
       ];
     }
   };
