@@ -335,8 +335,14 @@ function detectPage() {
     }
   };
 
-  document.addEventListener('DOMContentLoaded', function () {
+  function initializeI18n() {
     initSwitcher();
     setLanguage(currentLang);
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeI18n);
+  } else {
+    initializeI18n();
+  }
 })();
