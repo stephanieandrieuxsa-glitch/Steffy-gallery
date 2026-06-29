@@ -113,7 +113,10 @@
     .nav-links a:hover::after {
       width: 100%;
     }
-
+    /* Lang switcher dans le hamburger : caché sur desktop */
+    .lang-switcher-menu {
+      display: none;
+    }
     /* Hamburger caché sur desktop */
     .hamburger {
       display: none;
@@ -424,7 +427,19 @@
       .nav-right {
         gap: 12px;
       }
+    /* Cache le sélecteur du haut sur mobile */
+      .lang-switcher {
+        display: none;
+      }
 
+    /* Affiche celui dans le menu hamburger */
+      .lang-switcher-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 0 8px;
+      }
       /* Liens cachés par défaut — dropdown absolu */
       .nav-links {
         display: none;
@@ -543,18 +558,26 @@
   <nav>
     <img src="Images/Logo.webp" alt="Sarah's Art" class="logo-img">
     <div class="nav-right">
-      <div class="nav-links" id="navLinks">
-        <a href="index.html" data-i18n="nav.home">Home</a>
-        <a href="art.html" data-i18n="nav.gallery">Gallery</a>
-        <a href="process.html" data-i18n="nav.process">Process</a>
-        <a href="about.html" data-i18n="nav.about">About</a>
-        <a href="contact.html" data-i18n="nav.contact">Contact</a>
-      </div>
-      <div class="lang-switcher" role="group" data-i18n-attr="aria-label:lang.label">
+<div class="nav-links" id="navLinks">
+    <a href="index.html" data-i18n="nav.home">Home</a>
+    <a href="art.html" data-i18n="nav.gallery">Gallery</a>
+    <a href="process.html" data-i18n="nav.process">Process</a>
+    <a href="about.html" data-i18n="nav.about">About</a>
+    <a href="contact.html" data-i18n="nav.contact">Contact</a>
+
+    <div class="lang-switcher-menu" role="group" data-i18n-attr="aria-label:lang.label">
         <button type="button" class="lang-btn" data-lang="fr" aria-pressed="false">FR</button>
         <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
-      </div>
-      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+    </div>
+
+</div>
+
+<div class="lang-switcher" role="group" data-i18n-attr="aria-label:lang.label">
+    <button type="button" class="lang-btn" data-lang="fr" aria-pressed="false">FR</button>
+    <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+</div>
+
+<button class="hamburger" id="hamburger">
         <span></span>
         <span></span>
         <span></span>
